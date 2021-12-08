@@ -25,7 +25,6 @@ toppingPrijs     = 0
 #Laat zien dat de bestelleing betaald is
 def betaald():
     print('Uw bestelling is betaald!')
-    print('Fijne dag, en tot ziens!')
     clearScreen(5)
 
 #Invoer van de pincode
@@ -63,11 +62,21 @@ def totaal38():
 def totaalPin():
     print(f'Totaal betaald bedrag: €{totaalBolPrijs + totaalHoornPrijs + totaalBakPrijs + toppingPrijs}\n')
     clearScreen(10)
+    bonVraag = input('Had u het bonnetje gewild? (Y/N) ')
+    if bonVraag == 'Y':
+        bon()
+    else:
+        betaald()
 
 #Totaal betaald bedrag
 def totaalPin38():
     print(f'Totaal betaald bedrag: €{totaalBolPrijs + bakPrijs + toppingPrijs}\n')
     clearScreen(10)
+    bonVraag = input('Had u het bonnetje gewild? (Y/N) ')
+    if bonVraag == 'Y':
+        bon()
+    else:
+        betaald()
 
 #De prijskaart
 def prijskaart():	
@@ -93,6 +102,23 @@ def prijskaart38():
     clearScreen(10)
     print(pinContant38())
     print(totaalPin38())
+
+def bon():
+    print('--------[Papi Gelato]--------')
+    print('Bolletjes:   '      + str(aantal) + ' x ' + '€1,10 '+ '= ' + '€' + str(format(totaalBolPrijs, '.2f'))   + ',-')
+    print('Horrentje:       €' + str(format(totaalHoornPrijs, '.2f')) + ',-')
+    print('Bakje:           €' + str(format(totaalBakPrijs,   '.2f')) + ',-')
+    print('Topping:         €' + str(format(toppingPrijs,     '.2f')) + ',-')
+    print('-----------------------------')
+    print(totaal())
+
+def bon38():
+    print('--------[Papi Gelato]--------')
+    print('Bolletjes:   '      + str(aantal) + ' x ' + '€1,10 '+ '= ' + '€' + str(format(totaalBolPrijs, '.2f'))   + ',-')
+    print('Bakje:           €' + str(format(bakPrijs,         '.2f'))   + ',-')
+    print('Topping:         €' + str(format(toppingPrijs,     '.2f'))   + ',-')
+    print('-----------------------------')
+    print(totaal38())
 
 #Moet er nog meer besteld worden?
 def nogMeer():
@@ -141,23 +167,23 @@ def ijsje():
         print_slow(f'U krijgt een bakje met {aantal} bolletjes er in.\n')
         totaalBakPrijs   = bakPrijs   * bakje
         totaalHoornPrijs = hoornPrijs * hoorntje
-    topping = input('Wat voor topping wilt u:\nA) Geen \nB) Slagroom \nC) Sprinkels \nD) Caramel Saus \n').lower()
-    if topping == "a":
-        A = True
-    elif topping == "b":
-        B = True
-    elif topping == "c":
-        C = True
-    elif topping == "d":
-        D = True    
-    if topping == "a":
-        toppingPrijs = 0
-    elif topping == "b":
-        toppingPrijs = 0.50
-    elif topping == "c":
-        toppingPrijs = 0.30 * aantal
-    elif topping == "d":
-        toppingPrijs = 0.90
+        topping = input('Wat voor topping wilt u:\nA) Geen \nB) Slagroom \nC) Sprinkels \nD) Caramel Saus \n').lower()
+        if topping == "a":
+            A = True
+        elif topping == "b":
+            B = True
+        elif topping == "c":
+            C = True
+        elif topping == "d":
+            D = True    
+        if topping == "a":
+            toppingPrijs = 0
+        elif topping == "b":
+            toppingPrijs = 0.50
+        elif topping == "c":
+            toppingPrijs = 0.30 * aantal
+        elif topping == "d":
+            toppingPrijs = 0.90
         clearScreen(5)
         nogMeer38()
     elif aantal > 8:
