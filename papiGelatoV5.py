@@ -16,7 +16,7 @@ def print_slow(str):
         #time.sleep(0.05)
 
 #Prijzen
-bolPrijs         = 1.10
+bolPrijs         = 0.95
 hoornPrijs       = 1.25
 bakPrijs         = 0.75
 hoornOfBak       = 0
@@ -73,7 +73,7 @@ def totaalPin():
     if bonVraag == 'y':
         bon()
     else:
-        betaald()
+        ijsje()
 
 #Totaal betaald bedrag
 def totaalPin38():
@@ -83,15 +83,15 @@ def totaalPin38():
     if bonVraag == 'y':
         bon()
     else:
-        betaald()
+        ijsje()
 
 #De prijskaart
 def prijskaart():	
     print('--------[Papi Gelato]--------')
-    print('Bolletjes:   '      + str(aantal) + ' x ' + '€1,10 '+ '= ' + '€' + str(format(totaalBolPrijs, '.2f'))   + ',-')
-    print('Horrentje:       €' + str(format(totaalHoornPrijs, '.2f')) + ',-')
-    print('Bakje:           €' + str(format(totaalBakPrijs,   '.2f')) + ',-')
-    print('Topping:         €' + str(format(toppingPrijs,     '.2f')) + ',-')
+    print('Bolletjes:   '      + str(aantal) + ' x ' + '€0,95 '+ '= ' + '€' + str(format(totaalBolPrijs, '.2f'))   + ',-')
+    print('Horrentje:       €' +                                              str(format(totaalHoornPrijs, '.2f')) + ',-')
+    print('Bakje:           €' +                                              str(format(totaalBakPrijs,   '.2f')) + ',-')
+    print('Topping:         €' +                                              str(format(toppingPrijs,     '.2f')) + ',-')
     print('-----------------------------')
     print(totaal())
     clearScreen(10)
@@ -101,9 +101,9 @@ def prijskaart():
 #De prijskaart
 def prijskaart38():
     print('--------[Papi Gelato]--------')
-    print('Bolletjes:   '      + str(aantal) + ' x ' + '€1,10 '+ '= ' + '€' + str(format(totaalBolPrijs, '.2f'))   + ',-')
-    print('Bakje:           €' + str(format(bakPrijs,         '.2f'))   + ',-')
-    print('Topping:         €' + str(format(toppingPrijs,     '.2f'))   + ',-')
+    print('Bolletjes:   '      + str(aantal) + ' x ' + '€0,95 '+ '= '   + '€' + str(format(totaalBolPrijs, '.2f'))   + ',-')
+    print('Bakje:           €' +                                                str(format(bakPrijs,         '.2f'))   + ',-')
+    print('Topping:         €' +                                                str(format(toppingPrijs,     '.2f'))   + ',-')
     print('-----------------------------')
     print(totaal38())
     clearScreen(10)
@@ -121,19 +121,19 @@ def prijskaartZ():
 #Het bonnetje
 def bon():
     print('--------[Papi Gelato]--------')
-    print('Bolletjes:   '      + str(aantal) + ' x ' + '€1,10 '+ '= ' + '€' + str(format(totaalBolPrijs, '.2f'))   + ',-')
-    print('Horrentje:       €' + str(format(totaalHoornPrijs, '.2f')) + ',-')
-    print('Bakje:           €' + str(format(totaalBakPrijs,   '.2f')) + ',-')
-    print('Topping:         €' + str(format(toppingPrijs,     '.2f')) + ',-')
+    print('Bolletjes:   '      + str(aantal) + ' x ' + '€0,95 '+ '= ' + '€' + str(format(totaalBolPrijs,   '.2f'))   + ',-')
+    print('Horrentje:       €' +                                              str(format(totaalHoornPrijs, '.2f')) + ',-')
+    print('Bakje:           €' +                                              str(format(totaalBakPrijs,   '.2f')) + ',-')
+    print('Topping:         €' +                                              str(format(toppingPrijs,     '.2f')) + ',-')
     print('-----------------------------')
     print(totaal())
 
 #Het bonnetje
 def bon38():
     print('--------[Papi Gelato]--------')
-    print('Bolletjes:   '      + str(aantal) + ' x ' + '€1,10 '+ '= ' + '€' + str(format(totaalBolPrijs, '.2f'))   + ',-')
-    print('Bakje:           €' + str(format(bakPrijs,         '.2f'))   + ',-')
-    print('Topping:         €' + str(format(toppingPrijs,     '.2f'))   + ',-')
+    print('Bolletjes:   '      + str(aantal) + ' x ' + '€0,95 '+ '= ' + '€' + str(format(totaalBolPrijs,   '.2f'))   + ',-')
+    print('Bakje:           €' +                                              str(format(bakPrijs,         '.2f'))   + ',-')
+    print('Topping:         €' +                                              str(format(toppingPrijs,     '.2f'))   + ',-')
     print('-----------------------------')
     print(totaal38())
 
@@ -164,7 +164,7 @@ def ijsje():
     clearScreen(1)
     if groep == 'particulier':
         particulier = True
-        smaak = input('Wat voor smaak had u gewild? \nAardbei\nChocolade\nMunt\nVanille\nSmaak: ').lower()
+        smaak = input('Wat voor smaak had u gewild? \nAardbei\nChocolade\nOreo\nVanille\nSmaak: ').lower()
         clearScreen(1)
         print('U heeft voor ' + smaak + ' gekozen.\n')
         clearScreen(3)
@@ -208,7 +208,7 @@ def ijsje():
             clearScreen(5)
             nogMeer38()
         elif aantal > 8:
-            print_slow('Sorry, we hebben geen grootere bakjes.\n') 
+            print_slow('Sorry dat is geen optie die we aanbieden...\n') 
             clearScreen(3)
             ijsje() 
         totaalBakPrijs   = bakPrijs   * bakje
@@ -245,7 +245,7 @@ def ijsje():
             clearScreen(1)
             i += 1
             literPrijs = liters     * 9.80
-            btw        = literPrijs * 0.09
+            btw        = literPrijs * 0.06
         prijskaartZ()
 
 ijsje()
